@@ -1,0 +1,65 @@
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.shop {
+    color: purple;
+}
+
+.hammy {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .hammy .bar {
+    height: 5px;
+    background: purple;
+    border-radius: 5px;
+    margin: 3px 0px;
+    transform-origin: left;
+    transition: all 0.5s;
+  }
+
+  .hammy-active .top {
+    transform: rotate(45deg);
+  }
+  
+  .hammy-active .middle {
+    opacity: 0;
+  }
+  
+  .hammy-active .bottom {
+    transform: rotate(-45deg);
+  }
+
+.accountLink {
+    color : white;
+}
+
+.accountLink:hover {
+    color : purple;
+}
+
+.dropHide {
+    display: none;
+}
+
+.vert {
+    display: inline;
+}
