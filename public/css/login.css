@@ -1,0 +1,101 @@
+/* Grid */
+
+article.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* This will create two equal-width columns */
+}
+
+.left-content {
+  display: flex;
+  align-items: center; /* This will vertically center the content */
+  justify-content: center; /* This will horizontally center the content */
+}
+
+/* .right-content {
+  You can style your right side content here if needed
+} */
+
+.title {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sleepshop-title {
+  font-size: 6.5vw;
+  color: white; 
+  margin-left: 20px;
+}
+
+body>main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 7rem);
+    padding: 1rem 0;
+  }
+  
+  article {
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  article div {
+    padding: 1rem;
+  }
+  
+  @media (min-width: 576px) {
+    body>main {
+      padding: 1.25rem 0;
+    }
+  
+    article div {
+      padding: 1.25rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    body>main {
+      padding: 1.5rem 0;
+    }
+  
+    article div {
+      padding: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    body>main {
+      padding: 1.75rem 0;
+    }
+  
+    article div {
+      padding: 1.75rem;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    body>main {
+      padding: 2rem 0;
+    }
+  
+    article div {
+      padding: 2rem;
+    }
+  }
+  
+  /* Nav */
+  summary[role="link"].secondary:is([aria-current], :hover, :active, :focus) {
+    background-color: transparent;
+    color: var(--secondary-hover);
+  }
+  
+  @media (min-width: 992px) {
+    .grid>div:nth-of-type(2) {
+      display: block;
+    }
+  }
+  
+  /* Footer */
+  body>footer {
+    padding: 1rem 0;
+  }
