@@ -11,9 +11,9 @@ article.grid {
   justify-content: center; /* This will horizontally center the content */
 }
 
-.right-content {
-  /* You can style your right side content here if needed */
-}
+/* .right-content {
+  You can style your right side content here if needed
+} */
 
 .title {
   display: flex;
