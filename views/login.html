@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
 
     <!-- Custom styles for this example -->
-    <link rel="stylesheet" href="../public/css/custom.css" />
+    <link rel="stylesheet" href="../public/css/login.css" />
   </head>
 
   <body>
@@ -54,11 +54,14 @@
               required
             />
             <fieldset>
-              <label for="remember">
-                <input type="checkbox" role="switch" id="remember" name="remember" />
-                Remember me
-              </label>
-            </fieldset>
+              <div class="inline-content">
+                  <label for="remember">
+                      <input type="checkbox" role="switch" id="remember" name="remember" />
+                      Remember me
+                  </label>
+                  <a href="link_to_some_page.html" class="myLink">Sign Up</a>
+              </div>
+          </fieldset>
             <button type="submit" class="contrast" onclick="event.preventDefault()">Login</button>
           </form>
         </div>
