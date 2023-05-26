@@ -11,19 +11,30 @@ article.grid {
   justify-content: center; /* This will horizontally center the content */
 }
 
-/* .right-content {
-  You can style your right side content here if needed
-} */
+.right-content {
+  /* add styles here */
+}
 
 .title {
   display: flex;
   align-items: flex-start;
 }
 
+.myLink {
+  color: purple;
+}
+
 .sleepshop-title {
-  font-size: 6.5vw;
-  color: white; 
+  font-size: 6vw;
+  color: purple; 
   margin-left: 20px;
+}
+
+.inline-content {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 0;
 }
 
 body>main {
