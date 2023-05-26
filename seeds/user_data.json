@@ -1,0 +1,10 @@
+[
+{   "user_id": 1,
+    "user_name": "admin",
+    "first_name": "admin",
+    "last_name": "admin",
+    "user_email": "admin@localhost",
+    "user_password": "admin",
+    "user_points": 0
+}
+]

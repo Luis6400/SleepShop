@@ -15,7 +15,7 @@ Product.init({
         allowNull: false
     },
     price: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
             isDecimal: true}
@@ -32,6 +32,10 @@ Product.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    product_img_alt: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
 
 },
 
@@ -40,7 +44,7 @@ Product.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'products',
 }
 );
 
