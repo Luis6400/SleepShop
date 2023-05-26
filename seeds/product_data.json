@@ -1,20 +1,12 @@
 [
     {
-        "name": "American pillow",
+        "product_name": "American pillow",
         "price": 100,
-        "description": "A pillow with an American flag on it"
+        "product_description": "A pillow with an American flag on it",
+        "product_img_alt": "American flag pillow",
+        "product_img_path": "hello",
+        "product_category": "pillow"
 
-    },
-    {
-        "name": "Basic pillow",
-        "price": 50,
-        "description": "A pillow with no flag on it"
-    },
-    {
-        "name": "Purple pillow",
-        "price": 150,
-        "description": "A purpe pillow with no flag on it"
     }
-    
 
 ]
