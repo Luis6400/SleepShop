@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SleepSHOP</title>
+  <!-- come back to change the links  -->
+  <link rel="stylesheet" type="text/css" href="../public/css/shop.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+
+<header>
+  <main class="container">
+
+    <nav>
+      <!-- This makes the hamburger button turn into an X when clicked and also hides dropdown items until the hamburger button is made into an X-->
+      <ul>
+        <div class="hammy" id="ham" onclick="hammyClick()">
+          <div class="bar top"></div>
+          <div class="bar middle"></div>
+          <div class="bar bottom"></div>
+        </div>
+        <!-- The specific part for the dropdown items -->
+        <div class="dropdown dropHide" id="dropdown">
+          <ul>
+            <li><a href="#" class="secondary vert">Shop</a></li>
+            <li><a href="#" class="secondary vert">Checkout</a></li>
+          </ul>
+        </div>
+      </ul>
+      <!-- This makes the sleepSHOP title and also makes the SHOP turn purple -->
+      <ul>
+        <li class="title"><strong>sleep<span class="shop">SHOP</span></strong></li>
+      </ul>
+      <ul>
+        <li><a href="#" class="secondary accountLink">Account</a></li>
+      </ul>
+    </nav>
+
+    <!-- nav bar below the hamburger button -->
+    <nav aria-label="breadcrumb">
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Shop</a></li>
+      </ul>
+    </nav>
+
+  </main>
+
+</header>
+
+<body>
+  <main class="container">
+
+    <div class="center">
+      <h3>Items</h3>
+      <p>Here is a list of all the items you can buy with your sleep<span class="shop">POINTS!</span></p>
+    </div>
+
+    <!-- These are a list of all the items in the shop -->
+    <div class="grid">
+      <div>
+          {{#each products1 as |product|}}
+      {{> productcard product=product}}
+      {{/each}}
+      </div>
+      <div>
+        {{#each products2 as |product|}}
+      {{> productcard product=product}}
+      {{/each}}
+      </div>
+    </div>
+     
+  </main>
+  <script type="text/javascript" src="../public/js/header.js"></script>
+</body>
