@@ -1,0 +1,20 @@
+[
+    {
+        "name": "American pillow",
+        "price": 100,
+        "description": "A pillow with an American flag on it"
+
+    },
+    {
+        "name": "Basic pillow",
+        "price": 50,
+        "description": "A pillow with no flag on it"
+    },
+    {
+        "name": "Purple pillow",
+        "price": 150,
+        "description": "A purpe pillow with no flag on it"
+    }
+    
+
+]
