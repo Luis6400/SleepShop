@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <link rel="stylesheet" href="../public/css/shop.css">
+    <title>sleepCHECKOUT</title>
+</head>
+
+<header>
+    <main class="container">
+
+        <nav>
+            <!-- This makes the hamburger button turn into an X when clicked and also hides dropdown items until the hamburger button is made into an X-->
+            <ul>
+                <div class="hammy" id="ham" onclick="hammyClick()">
+                    <div class="bar top"></div>
+                    <div class="bar middle"></div>
+                    <div class="bar bottom"></div>
+                </div>
+                <!-- The specific part for the dropdown items -->
+                <div class="dropdown dropHide" id="dropdown">
+                    <ul>
+                        <li><a href="#" class="secondary vert">Shop</a></li>
+                        <li><a href="#" class="secondary vert">Checkout</a></li>
+                    </ul>
+                </div>
+            </ul>
+            <!-- This makes the sleepSHOP title and also makes the SHOP turn purple -->
+            <ul>
+                <li class="title"><strong>sleep<span class="shop">CHECKOUT</span></strong></li>
+            </ul>
+            <ul>
+                <li><a href="#" class="secondary accountLink">Account</a></li>
+            </ul>
+        </nav>
+    </main>
+</header>
+
+<body>
+    <main class="container">
+        <div class="grid">
+            <div>
+                <h2 class="shop">Checkout</h2>
+            </div>
+            <div>
+            </div>
+        </div>
+
+        <!-- This is the section for the card that displays all of the info about the item that you're purchasing -->
+        <article>
+            <div class="grid">
+                <div>
+                    <p>*placeholder for the quntity of the item*</p>
+                </div>
+                <div>
+                    <p><span class="shop">*Placeholder for the name of the item*</span></p>
+                </div>
+                <div>
+                    *placeholder for the price of the item*
+                </div>
+            </div>
+        </article>
+        <!-- This next section is for the form you need to fill out to get your item -->
+        <form>
+
+            <div class="grid">
+                <div>
+                    <label for="address">
+                        Address
+                        <input type="text" id="address" name="address" placeholder="Address" required>
+                    </label>
+
+                    <label for="city">
+                        City
+                        <input type="text" id="city" name="city" placeholder="City" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="zip">
+                        Zip Code
+                        <input type="text" id="zip" name="zip" placeholder="Zip" required>
+                    </label>
+                    <label for="state">
+                        State
+                        <input type="text" id="state" name="state" placeholder="State" required>
+                    </label>
+                </div>
+            </div>
+            <button type="submit">Confirm</button>
+        </form>
+        <script src="../public/js/header.js"></script>
+    </main>
+</body>
+
+</html>
