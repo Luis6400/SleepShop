@@ -1,0 +1,30 @@
+/* CSS for Grid layout of boxes */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1.5fr 3.5fr; 
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "left-top right"
+      "left-bottom right";
+    grid-gap: 10px;
+  }
+  
+  .box {
+    border: 2px solid purple;
+    padding: 20px;
+    min-height: 300px; 
+  }
+  
+  .left-top {
+    grid-area: left-top;
+  }
+  
+  .left-bottom {
+    grid-area: left-bottom;
+  }
+  
+  .right {
+    grid-area: right;
+  }
+  
