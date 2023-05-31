@@ -4,7 +4,8 @@
   "description": "A sleep tracking application that you can earn rewards from",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
+    "nodemon": "^2.0.22",
     "prettier": "^2.1.2"
   }
 }

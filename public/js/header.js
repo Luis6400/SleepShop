@@ -13,3 +13,22 @@ function hammyClick() {
         dropdown.classList.add("dropHide");
     }
 }
+
+
+document.getElementById("logout").addEventListener("click", function () {
+    fetch('/api/logout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(function (response) {
+        if (response.status === 204) {
+            window.location.replace("/");
+        }
+        else {
+            console.log(response);
+        }
+    }
+    );
+}
+);
