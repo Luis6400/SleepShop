@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>sleepshop</title>
+    <meta name="description" content="A minimalist layout for Login pages. Built with Pico CSS." />
+    <link rel="shortcut icon" href="https://picocss.com/favicon.ico" />
+    <link rel="canonical" href="https://picocss.com/examples/sign-in/" />
+    
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+
+    <!-- Custom styles for this example -->
+    <link rel="stylesheet" href="../public/css/profile.css" />
+    <link rel="stylesheet" href="../public/css/dashboard.css" />
+
+
+  </head>
+  <body>
+  <header>
+    <main class="container">
+  
+      <nav>
+        <!-- This makes the hamburger button turn into an X when clicked and also hides dropdown items until the hamburger button is made into an X-->
+        <ul>
+          <div class="hammy" id="ham" onclick="hammyClick()">
+            <div class="bar top"></div>
+            <div class="bar middle"></div>
+            <div class="bar bottom"></div>
+          </div>
+          <!-- The specific part for the dropdown items -->
+          <div class="dropdown dropHide" id="dropdown">
+            <ul>
+              <li><a href="#" class="secondary vert">Shop</a></li>
+              <li><a href="#" class="secondary vert">Checkout</a></li>
+            </ul>
+          </div>
+        </ul>
+        <!-- This makes the sleepSHOP title and also makes the SHOP turn purple -->
+        <ul>
+          <li class="title"><strong>sleep<span class="create">DASHBOARD</span></strong></li>
+        </ul>
+        <ul>
+          <li><a href="#" class="secondary accountLink">Account</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <div class="grid-container">
+        <div class="box left-top">
+          <p>Tips for good sleep</p>
+        </div>
+        
+        <div class="box left-bottom">
+          <p>products you can buy</p>
+        </div>
+        
+        <div class="box right">
+          <p>Start sleep button/graph</p>
+        </div>
+      </div>  
+  
+
+    
+
+   
+  </body>
+  <script type="text/javascript" src="../public/js/header.js"></script>
+</html>
