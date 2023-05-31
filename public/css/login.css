@@ -30,11 +30,22 @@ article.grid {
   margin-left: 20px;
 }
 
+#submitButton:hover {
+  background-color: purple;
+  border-color: purple;
+}
+
 .inline-content {
   display: flex;
   justify-content: space-between; 
   align-items: center; 
   margin-bottom: 0;
+}
+
+input:focus {
+  outline-color: purple;
+  border-color: purple;
+  box-shadow: 0 0 5px purple; 
 }
 
 body>main {
