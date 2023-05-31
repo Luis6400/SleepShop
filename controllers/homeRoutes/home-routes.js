@@ -1,13 +1,35 @@
 const router = require('express').Router();
+const { json } = require('sequelize');
 const sequelize = require('../../config/connection');
 const { Product } = require('../../models');
+const { User } = require('../../models');
+const { sleep_data } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
     try {
+        const sleepData = await sleep_data.findByPk(req.session.user_id);
+        const sleep = sleepData.map((sleep) => sleep.get({ plain: true }));
+
+        res.render('dashboard', { logged_in: req.session.logged_in, sleep });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/shop', withAuth, async (req, res) => {
+    try {
+        const productData = await Product.findAll();
+        const products = productData.map((product) => product.get({ plain: true }));
+        const half = Math.ceil(products.length / 2);
+        const products1 = products.slice(half, products.length);
+        const products2 = products.slice(0, half);
         
         res.render('shop', {
             logged_in: req.session.logged_in,
+            products1,
+            products2
         });
     
     } catch (err) {
@@ -19,18 +41,45 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/login', async (req, res) => {
     
     if (req.session.logged_in) {
-        res.redirect('/');
+        res.redirect('/shop');
         return;
     }
     res.render('login', {logged_in: req.session.logged_in});
 
 });
 
-router.get('/product', withAuth , async (req, res) => {
+router.get('/product/:id', withAuth , async (req, res) => {
     try {
+        const productData = await Product.findByPk(req.params.id);
+        const product = productData.get({ plain: true });
+
         res.render('product', {
-        logged_in: req.session.logged_in
+        logged_in: req.session.logged_in,
+        product
+
         });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/signup', async (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            res.redirect('/shop');
+            return;
+        }
+        res.render('signup', {logged_in: req.session.logged_in});
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/account', withAuth, async (req, res) => {
+    try {
+        res.render('profile', {logged_in: req.session.logged_in});
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
