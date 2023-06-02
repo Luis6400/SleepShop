@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>sleepshop</title>
     <meta name="description" content="A minimalist layout for Login pages. Built with Pico CSS." />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
+    
     <link rel="shortcut icon" href="https://picocss.com/favicon.ico" />
     <link rel="canonical" href="https://picocss.com/examples/sign-in/" />
-    
-
     <!-- Pico.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
 
@@ -49,17 +60,32 @@
       </nav>
     </header>
   
-    <div class="grid-container">
+    <div class="container grid-container">
+        <div class="box newBox">
+            <p>Start the sleep timer to track your nightly rest. Earn points for a good night's sleep, within the optimal 7-9 hours as recommended by the <a href="https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html" target="_blank" rel="noopener noreferrer" id="cdc">CDC</a>, and spend them in our sleep-related products shop. Remember, both undersleeping and oversleeping can affect your health, so strive for balance.</p>
+        </div>
         <div class="box left-top">
-          <p>Tips for good sleep</p>
+            <h3>sleepTIPS</h3>
+            <button id="prevTip" class="outline">Previous</button>
+            <p id="tip">Loading...</p>
+            <button id="nextTip" class="outline">Next</button>
         </div>
         
         <div class="box left-bottom">
-          <p>products you can buy</p>
+            <h4>sleepPRODUCTS</h3>
         </div>
         
         <div class="box right">
-          <p>Start sleep button/graph</p>
+            <div id='calendar'></div>
+            <div class="sleepTracker">
+                
+                <a href="#" role="button" id="startSleep" class="outline">Start Sleep</a>
+                <p id="timer">00:00:00</p>
+                
+
+            </div>
+
+
         </div>
       </div>  
   
@@ -68,5 +94,6 @@
 
    
   </body>
+  <script type="text/javascript" src="../public/js/dashboard.js"></script>
   <script type="text/javascript" src="../public/js/header.js"></script>
 </html>
