@@ -63,7 +63,7 @@ input:focus {
 .form-row > label {
     flex: 1 0 calc(33% - 1em);
     margin: 0.5em;
-}s
+}
 
 #submitButton {
   margin-top: 2em;
