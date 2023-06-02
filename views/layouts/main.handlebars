@@ -9,6 +9,18 @@
     <meta name="description" content="Sleepshop" />
     <link rel="shortcut icon" href="https://picocss.com/favicon.ico" />
     <link rel="canonical" href="https://picocss.com/examples/sign-in/" />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
 
 
     <!-- Pico.css -->
@@ -67,6 +79,7 @@
 <script src="/js/loginscript.js"></script>
 <script src="/js/product.js"></script>
 <script src="/js/signupscript.js"></script>
+<script src="/js/dashboard.js"></script>
 
 
 </html>

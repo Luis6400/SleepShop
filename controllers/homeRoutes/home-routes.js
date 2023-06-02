@@ -12,9 +12,9 @@ router.get('/', withAuth, async (req, res) => {
         if (sleepData) {
             const sleep = sleepData.map((sleep) => sleep.get({ plain: true }));
 
-            res.render('test', { logged_in: req.session.logged_in, sleep });
+            res.render('dashboard', { logged_in: req.session.logged_in, sleep, user_id: req.session.user_id });
         }else{
-            res.render('test', { logged_in: req.session.logged_in });
+            res.render('dashboard', { logged_in: req.session.logged_in, user_id: req.session.user_id });
         }
         
     } catch (err) {
@@ -103,5 +103,11 @@ router.get('/cart/:id/:quantity', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+
+
+
+
 
 module.exports = router;
