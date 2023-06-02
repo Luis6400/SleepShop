@@ -8,6 +8,7 @@ h1 {
 
 .center{
     text-align: center;
+    margin-top: 100px;
 }
 
 .title {
@@ -51,6 +52,9 @@ input:focus {
 
 .form-group > div {
   margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .form-row {
@@ -65,13 +69,21 @@ input:focus {
     margin: 0.5em;
 }
 
+label {
+  display: inline-block;
+  width: 250px;
+  text-align: right;
+}
+
 #submitButton {
   margin-top: 2em;
   width: 100%;
 }
 
 .update {
-    margin-left: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
 }
 
 @media (max-width: 768px) {

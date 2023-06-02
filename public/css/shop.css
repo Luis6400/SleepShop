@@ -6,6 +6,11 @@ h1 {
     text-align: center;
 }
 
+nav {
+  position: relative;
+}
+
+
 .productSize {
   width: 450px;
   height: 450px;
@@ -24,7 +29,12 @@ h1 {
 
 .title {
     font-size: 50px;
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 .shop {
     color: purple;
