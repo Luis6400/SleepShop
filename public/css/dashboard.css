@@ -11,6 +11,11 @@
     grid-gap: 10px;
 }
 
+.dashimg {
+    width: 150px;
+    height: 150px;
+}
+
 .sleepTracker {
     display: flex;
     justify-content: center; 

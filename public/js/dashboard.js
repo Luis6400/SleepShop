@@ -1,6 +1,8 @@
 
-let productsindex = 0;
-renderProduct(productsindex);
+var productsindex = 0;
+const prodsection = document.getElementById("prodsec");
+
+
 
 
 //Controls sleepTIPS
@@ -31,18 +33,30 @@ document.getElementById("prevTip").addEventListener("click", function () {
 function renderProduct(int) {
     fetch('/api/dashboard/renderproduct', {
         method: 'POST',
+        body: JSON.stringify({}),
+        headers: {
+            'Content-Type': 'application/json',
+        },
     }).then(function (response) {
         if (response.status === 200) {
-            const products = (response.products);
-            console.log(products);
-            let prodsection = document.getElementById("prodsec");
-            document.getElementById("prodname").textContent = products[int].product_name;
-            let imgel = document.createElement("img");
-            imgel.setAttribute("src", `/images/${products[int].product_img_path}`);
-            prodsection.appendChild(imgel);
-            let linkel = document.createElement("a")
-            linkel.setAttribute("href", `/product/${products[int].id}`);
-            prodsection.appendChild(linkel);
+            (response.json()).then(function (data) {
+                const products = (data.products);
+                let div = document.createElement("div");
+                div.setAttribute("class", "productLink");
+                prodsection.appendChild(div);
+                let ael = document.createElement("a");
+                ael.textContent = products[int].product_name;
+                div.appendChild(ael);
+                let imgel = document.createElement("img");
+                imgel.setAttribute("alt", products[int].product_name);
+                imgel.setAttribute("class", "dashimg");
+                imgel.setAttribute("src", `/images/${products[int].product_img_path}`);
+                div.appendChild(imgel);
+                let linkel = document.createElement("a")
+                linkel.textContent = "View Product";
+                linkel.setAttribute("href", `/product/${products[int].id}`);
+                div.appendChild(linkel);
+            });
         }
         else {
             console.log(response);
@@ -50,158 +64,256 @@ function renderProduct(int) {
         }
     });
 
-    }
+}
 
 document.getElementById("nextProd").addEventListener("click", function () {
-
-    });
-
-    document.getElementById("prevProd").addEventListener("click", function () {
-
-    });
-
-    var calendar;
-
-    // Sleep tracking function
-    let timer;
-    let seconds = 0;
-    let isSleeping = false;
-    let user_points = 0;
-    let sleepStartDate;
-    let sleepEndDate;
-
-    function startTimer(starttime) {
-        var timediff = starttime - Date.now();
-        console.log(timediff);
-        // timer = setInterval(function () {
-
-            
-
-        //     seconds++;
-        //     let hours = Math.floor(seconds / 3600);
-        //     let minutes = Math.floor(seconds % 3600 / 60);
-        //     let remainingSeconds = seconds % 60;
-
-
-        //     //Adds a 0 to the front of the number if it is less than 10
-        //     //Makes timer more readable
-        //     hours = hours < 10 ? '0' + hours : hours;
-        //     minutes = minutes < 10 ? '0' + minutes : minutes;
-        //     remainingSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
-
-        //     document.querySelector('#timer').textContent = `${hours}:${minutes}:${remainingSeconds}`;
-        //     //Stop time if sleep is over 9 hours. No event logged or points awarded.
-        //     if (seconds >= 120) {
-        //         clearInterval(timer);
-        //         this.textContent = "Start Sleep";
-        //         isSleeping = false;
-        //         seconds = 0;
-        //     }
-        // }.bind(this), 1000);
+    prodsection.innerHTML = "";
+    productsindex++;
+    if (productsindex > 14) {
+        productsindex = 0;
     }
+    renderProduct(productsindex);
+});
 
-    document.querySelector('#startSleep').addEventListener('click', function (event) {
-        event.preventDefault();
-        sleepStartDate = new Date();
-        temphour = sleepStartDate.getTime;
-        //how to get data-id from button?
-        let id = this.getAttribute("data-id");
+document.getElementById("prevProd").addEventListener("click", function () {
+    prodsection.innerHTML = "";
+    productsindex--;
+    if (productsindex < 0) {
+        productsindex = 14;
+    }
+    renderProduct(productsindex);
+});
 
-        console.log(sleepStartDate);
-        console.log(sleepStartTimestamp);
-        
-        fetch('/api/dashboard/createsleep', {
-            method: 'POST',
-            body: JSON.stringify({
+var calendar;
+
+// Sleep tracking function
+
+
+
+
+function formatTime(date) {
+    return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+}
+
+document.querySelector('#startSleep').addEventListener('click', async function (event) {
+    event.preventDefault();
+    var sleepStartDate = new Date();
+    var sleepHour = formatTime(sleepStartDate);
+    var id = parseInt(this.getAttribute("useriddata"));
+    console.log(id);
+    await fetch('/api/dashboard/createsleep', {
+        method: 'POST',
+        body: JSON.stringify({
+            sleepstart: {
                 date: sleepStartDate,
-                sleep_start: sleepStartTimestamp,
-                user_id: id,
-                still_sleeping: true
-            }),
-            headers: {
-                'Content-Type': 'application/json',
+                sleep_start: sleepHour,
+                still_sleeping: true,
+                user_id: id
             },
-        }).then(function (response) {
-            if (response.status === 200) {
-                console.log(response);
-                this.textContent = "Stop Sleep";
-                this.removeAttribute("id");
-                this.setAttribute("id", "stopSleep");
-                startTimer(sleepStartTimestamp);
+            sleepend: { sleep_end: sleepHour, still_sleeping: false, end_date: sleepStartDate }
 
-                
-
-
-            }
-            else {
-                console.log(response);
-                alert("Something went wrong");
-            }
-        });
-        
-        
-        if (!isSleeping) {
-
-            timer = setInterval(function () {
-                seconds++;
-                let hours = Math.floor(seconds / 3600);
-                let minutes = Math.floor(seconds % 3600 / 60);
-                let remainingSeconds = seconds % 60;
-
-
-                //Adds a 0 to the front of the number if it is less than 10
-                //Makes timer more readable
-                hours = hours < 10 ? '0' + hours : hours;
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                remainingSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
-
-                document.querySelector('#timer').textContent = `${hours}:${minutes}:${remainingSeconds}`;
-                //Stop time if sleep is over 9 hours. No event logged or points awarded.
-                if (seconds >= 120) {
-                    clearInterval(timer);
-                    this.textContent = "Start Sleep";
-                    isSleeping = false;
-                    seconds = 0;
-                }
-            }.bind(this), 1000);
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(function (response) {
+        if (response.status === 201) {
+            console.log(response);
             isSleeping = true;
-        } else {
-            clearInterval(timer);
-            this.textContent = "Start Sleep";
-            if (seconds >= 60 && seconds <= 120) {
-                user_points += 10;
-                let sleepEndDate = new Date();
-                //Add event to the calendar
+
+        } else if (response.status === 202) {
+            console.log(response);
+            response.json().then(function (data) {
+                console.log(data);
+                let start = data.startdate;
+                let end = data.enddate;
+                let points = data.points;
                 calendar.addEvent({
-                    title: '10 points',
-                    start: sleepStartDate,
-                    end: sleepEndDate
-                });
-            }
-            seconds = 0;
+                    title: `${points} points`,
+                    start: start,
+                    end: end
+                }
+                )
+            });
             isSleeping = false;
         }
-        console.log(user_points);
-    });
+        else {
+            console.log(response);
+            alert("Something went wrong");
+        }
 
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
-        calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            events: [],
-            selectable: true,
-            headerToolbar: {
-                start: 'prev,next today',
-                center: 'title',
-                end: ''
-            },
-            contentHeight: 'auto',
-            eventClick: function (info) {
-                alert('Event: ' + info.event.title + '\n' +
-                    'Start: ' + info.event.start.toLocaleTimeString() + '\n' +
-                    'End: ' + info.event.end.toLocaleTimeString());
-            }
-        });
-        calendar.render();
     });
+
+    if (isSleeping) {
+        this.textContent = "Stop Sleep";
+    } else {
+        this.textContent = "Start Sleep";
+    }
+
+});
+
+// document.querySelector('#stopSleep').addEventListener('click', async function (event) {
+//     event.preventDefault();
+//     var sleepEndDate = new Date();
+//     var sleepEndHour = formatTime(sleepEndDate);
+//     var id = parseInt(this.getAttribute("useriddata"));
+//     console.log(id);
+//     await fetch('/api/dashboard/updatesleep', {
+//         method: 'PUT',
+//         body: JSON.stringify({
+//             sleep_end: sleepEndHour,
+//             still_sleeping: false
+//         }),
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//     }).then(function (response) {
+//         if (response.status === 200) {
+//             console.log(response);
+//         }
+//         else {
+//             console.log(response);
+//             alert("Something went wrong");
+//         }
+//     });
+//     this.textContent = "Start Sleep";
+//     this.removeAttribute("id");
+//     this.setAttribute("id", "startSleep");
+// });
+
+
+// document.querySelector('#startSleep').addEventListener('click', function (event) {
+//     event.preventDefault();
+//     let sleepStartDate = new Date();
+//     let temphour = sleepStartDate.getTime();
+//     //how to get data-id from button?
+//     let id = this.getAttribute("data-id");
+
+//     console.log(sleepStartDate);
+//     console.log(temphour);
+
+//     fetch('/api/dashboard/createsleep', {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             date: sleepStartDate,
+//             sleep_start: temphour,
+//             user_id: id,
+//             still_sleeping: true
+//         }),
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//     }).then(function (response) {
+//         if (response.status === 200) {
+//             console.log(response);
+//             this.textContent = "Stop Sleep";
+//             this.removeAttribute("id");
+//             this.setAttribute("id", "stopSleep");
+//             startTimer(sleepStartTimestamp);
+
+
+
+
+//         }
+//         else {
+//             console.log(response);
+//             alert("Something went wrong");
+//         }
+//     });
+
+
+//     if (!isSleeping) {
+
+//         timer = setInterval(function () {
+//             seconds++;
+//             let hours = Math.floor(seconds / 3600);
+//             let minutes = Math.floor(seconds % 3600 / 60);
+//             let remainingSeconds = seconds % 60;
+
+
+//             //Adds a 0 to the front of the number if it is less than 10
+//             //Makes timer more readable
+//             hours = hours < 10 ? '0' + hours : hours;
+//             minutes = minutes < 10 ? '0' + minutes : minutes;
+//             remainingSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
+
+//             document.querySelector('#timer').textContent = `${hours}:${minutes}:${remainingSeconds}`;
+//             //Stop time if sleep is over 9 hours. No event logged or points awarded.
+//             if (seconds >= 120) {
+//                 clearInterval(timer);
+//                 this.textContent = "Start Sleep";
+//                 isSleeping = false;
+//                 seconds = 0;
+//             }
+//         }.bind(this), 1000);
+//         isSleeping = true;
+//     } else {
+//         clearInterval(timer);
+//         this.textContent = "Start Sleep";
+//         if (seconds >= 60 && seconds <= 120) {
+//             user_points += 10;
+//             let sleepEndDate = new Date();
+//             //Add event to the calendar
+//             calendar.addEvent({
+//                 title: '10 points',
+//                 start: sleepStartDate,
+//                 end: sleepEndDate
+//             });
+//         }
+//         seconds = 0;
+//         isSleeping = false;
+//     }
+//     console.log(user_points);
+// });
+
+window.onload = async function () {
+
+    renderProduct(productsindex);
+
+    await fetch('/api/dashboard/issleeping', {
+        method: 'POST',
+        body: JSON.stringify({}),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(function (response) {
+        if (response.status === 200) {
+            document.querySelector('#startSleep').textContent = "Stop Sleep";
+            console.log("stop")
+            isSleeping = true;
+        }
+        else if (response.status === 201) {
+            document.querySelector('#startSleep').textContent = "Start Sleep";
+            console.log("start")
+            isSleeping = false;
+        } else {
+            alert("Something went wrong");
+        }
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+
+    var calendarEl = document.getElementById('calendar');
+    calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: [],
+        selectable: true,
+        headerToolbar: {
+            start: 'prev,next today',
+            center: 'title',
+            end: ''
+        },
+        contentHeight: 'auto',
+        eventClick: function (info) {
+            alert('Event: ' + info.event.title + '\n' +
+                'Start: ' + info.event.start.toLocaleTimeString() + '\n' +
+                'End: ' + info.event.end.toLocaleTimeString());
+        }
+    });
+    calendar.render();
+});
