@@ -12,15 +12,14 @@
             </blockquote>
 
             <label for="points">{{product.price}} sleep<span class="shop">POINTS</span></label>
-            <select id="bed" required>
-                <option value="selected">Quantity…</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+            <select id="bed" class="quantity" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
 
-            <a href="#" role="button">Add to Cart</a>
+            <a id="buy" iddata="{{product.id}}" href="#" onclick="event.preventDefault()" role="button">Buy Now!</a>
 
         </div>
 

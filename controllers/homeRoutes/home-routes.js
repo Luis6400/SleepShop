@@ -9,9 +9,14 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         const sleepData = await sleep_data.findByPk(req.session.user_id);
-        const sleep = sleepData.map((sleep) => sleep.get({ plain: true }));
+        if (sleepData) {
+            const sleep = sleepData.map((sleep) => sleep.get({ plain: true }));
 
-        res.render('dashboard', { logged_in: req.session.logged_in, sleep });
+            res.render('test', { logged_in: req.session.logged_in, sleep });
+        }else{
+            res.render('test', { logged_in: req.session.logged_in });
+        }
+        
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -80,6 +85,19 @@ router.get('/signup', async (req, res) => {
 router.get('/account', withAuth, async (req, res) => {
     try {
         res.render('profile', {logged_in: req.session.logged_in});
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+router.get('/cart/:id/:quantity', withAuth, async (req, res) => {
+    try {
+        const productData = await Product.findByPk(req.params.id);
+        const product = productData.get({ plain: true });
+        const quantity = req.params.quantity;
+
+        res.render('checkout', { logged_in: req.session.logged_in, product, quantity });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
