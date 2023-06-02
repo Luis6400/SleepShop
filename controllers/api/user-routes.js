@@ -106,13 +106,36 @@ router.post('/dashboard/renderproduct', async (req, res) => {
 router.post('/dashboard/issleeping', async (req, res) => {
   try {
     const sleepcheck = await sleep_data.findAll({ where: { still_sleeping: true, user_id: req.session.user_id } });
+    const sleepdata = await sleep_data.findAll({ where: { user_id: req.session.user_id, still_sleeping: false} });
+    const sleepdatearray = [];
+    for (var i = 0; i < sleepdata.length; i++) {
+      var startyear = parseInt(((sleepdata[i]).date).slice(0,4));
+      var startmonth = (parseInt((sleepdata[i].date).slice(5,7)))-1;
+      var startday = parseInt((sleepdata[i].date).slice(8,10));
+      var starthour = parseInt((sleepdata[i].sleep_start).slice(0,2));
+      var startminute = parseInt((sleepdata[i].sleep_start).slice(3,5));
+      var startsecond = parseInt((sleepdata[i].sleep_start).slice(6,8));
+      
+      var endyear = parseInt((sleepdata[i].end_date).slice(0,4));
+      var endmonth = (parseInt((sleepdata[i].end_date).slice(5,7)))-1;
+      var endday = parseInt((sleepdata[i].end_date).slice(8,10));
+      var endhour = parseInt((sleepdata[i].sleep_end).slice(0,2));
+      var endminute = parseInt((sleepdata[i].sleep_end).slice(3,5));
+      var endsecond = parseInt((sleepdata[i].sleep_end).slice(6,8));
+      
+      var startdate = new Date(startyear, startmonth, startday, starthour, startminute,startsecond);
+      var enddate = new Date(endyear, endmonth, endday, endhour, endminute,endsecond);
+      sleepdatearray.push({startdate, enddate});
+    }
+
+
     if (sleepcheck.length == 0) {
       res.status(201)
-      .json({ sleepcheck });
+      .json({ sleepcheck, sleepdata, sleepdatearray });
     }
     else if (sleepcheck.length !== 0) {
       res.status(200)
-      .json({ sleepcheck });
+      .json({ sleepcheck, sleepdata, sleepdatearray });
     }
   }
   catch (err) {
@@ -148,13 +171,10 @@ router.post('/dashboard/createsleep', async (req, res) => {
       const endhour = parseInt((req.body.sleepend.sleep_end).slice(0,2));
       const endminute = parseInt((req.body.sleepend.sleep_end).slice(3,5));
       const endsecond = parseInt((req.body.sleepend.sleep_end).slice(5,8));
-      console.log(startyear, startmonth, startday, starthour, startminute,startsecond);
-      console.log(endyear, endmonth, endday, endhour, endminute,endsecond);
       
       const startdate = new Date(startyear, startmonth, startday, starthour, startminute,startsecond);
       const enddate = new Date(endyear, endmonth, endday, endhour, endminute,endsecond);
       
-      console.log(startdate,enddate);
 
       const timeslept = Math.round((((enddate.getTime() - startdate.getTime()) / 1000)/60)/60);
 
@@ -304,8 +324,5 @@ router.post('/updatelastname', withAuth, async (req, res) => {
 
 
 
-// router.post( )
-
-router.post('')
 
 module.exports = router;

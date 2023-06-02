@@ -24,7 +24,27 @@ orders.init(
                 model: 'users',
                 key: 'id',
             }
-        }
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        state: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        zip: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        total: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     },
     {
         sequelize,

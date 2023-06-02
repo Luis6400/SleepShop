@@ -6,3 +6,10 @@ document.getElementById("buy").addEventListener("click", function () {
     window.location.href = `/cart/${id}/${quantity}`;
 
 });
+
+function updateTotal() {
+    var total = document.getElementById("totalprice");
+    var quan = document.getElementById("totalquantity");
+    var newt = (parseInt(total.innerText) * parseInt(quan.innerText));
+    document.getElementById("totalprice").innerText=(`Total: ${newt}`);
+}
