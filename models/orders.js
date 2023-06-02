@@ -1,27 +1,22 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class sleep_data extends Model {}
+class orders extends Model {}
 
-sleep_data.init(
+orders.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false, 
+            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        date: {
+        date_ordered: {
             type: DataTypes.DATEONLY,
             allowNull: false,
         },
-        sleep_start: {
-            type: DataTypes.TIME,
-            allowNull: false,
-        },
-        sleep_end: {
-            type: DataTypes.TIME,
-            allowNull: false,
+        product_id: {
+            type: DataTypes.INTEGER,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -30,16 +25,14 @@ sleep_data.init(
                 key: 'id',
             }
         }
-        
-        
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'sleep_data',
+        modelName: 'orders',
     }
-    );
+);
 
-module.exports = sleep_data;
+module.exports = orders;

@@ -42,6 +42,16 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try{
+        console.log(req.body);
+        var emailcheck =req.body.user_email;
+        console.log(emailcheck);
+        const usercheck = await User.findOne({ where: { user_email: emailcheck } });
+        if(usercheck!==null){
+            res.status(400).json({ message: 'Email already in use' });
+            return;
+        }
+
+
         const userData = await User.create(req.body);
             
             req.session.save(() => {
