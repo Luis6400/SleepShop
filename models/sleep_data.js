@@ -19,12 +19,20 @@ sleep_data.init(
             type: DataTypes.TIME,
             allowNull: false,
         },
+        end_date: {
+            type: DataTypes.DATEONLY,
+            allowNull: true,
+        },
         sleep_end: {
             type: DataTypes.TIME,
             allowNull: true,
         },
         still_sleeping: {
             type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
+        time_slept: {
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
         points_earned: {
