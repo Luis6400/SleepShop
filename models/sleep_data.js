@@ -21,7 +21,15 @@ sleep_data.init(
         },
         sleep_end: {
             type: DataTypes.TIME,
-            allowNull: false,
+            allowNull: true,
+        },
+        still_sleeping: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
+        points_earned: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
         },
         user_id: {
             type: DataTypes.INTEGER,
