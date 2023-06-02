@@ -3,6 +3,7 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { User, Product, sleep_data, orders } = require('../../models');
 
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { user_email: req.body.email } });
@@ -194,6 +195,13 @@ router.post('/dashboard/createsleep', async (req, res) => {
 router.post('/award', withAuth, async (req, res) => {
   try {
     var points = req.body.points;
+    var user_id = req.session.user_id;
+    const userData = await User.findByPk(user_id);
+    var user_points = userData.user_points;
+    var new_points = user_points + points;
+    const userUpdate = await User.update({user_points: new_points}, {where: {id: user_id}});
+    res.status(200)
+    .json({ userUpdate});
 
   }
   catch (err) {
@@ -204,6 +212,14 @@ router.post('/award', withAuth, async (req, res) => {
 
 router.post('/spend', withAuth, async (req, res) => {
   try {
+    var points = req.body.points;
+    var user_id = req.session.user_id;
+    const userData = await User.findByPk(user_id);
+    var user_points = userData.user_points;
+    var new_points = user_points - points;
+    const userUpdate = await User.update({user_points: new_points}, {where: {id: user_id}});
+    res.status(200)
+    .json({ userUpdate});
 
   }
   catch (err) {
@@ -214,6 +230,11 @@ router.post('/spend', withAuth, async (req, res) => {
 
 router.post('/updateemail', withAuth, async (req, res) => {
   try {
+    const userdata = await User.findByPk(req.session.user_id);
+    userdata.user_email = req.body.user_email;
+    await userdata.save();
+    res.status(200)
+    .json({ userdata});
 
   }
   catch (err) {
@@ -224,6 +245,11 @@ router.post('/updateemail', withAuth, async (req, res) => {
 
 router.post('/updatepassword', withAuth, async (req, res) => {
   try {
+    const userdata = await User.findByPk(req.session.user_id);
+    userdata.user_password = req.body.user_password;
+    await userdata.save();
+    res.status(200)
+    .json({ userdata});
 
   }
   catch (err) {
@@ -234,6 +260,11 @@ router.post('/updatepassword', withAuth, async (req, res) => {
 
 router.post('/updateusername', withAuth, async (req, res) => {
   try {
+    const userdata = await User.findByPk(req.session.user_id);
+    userdata.user_name = req.body.user_name;
+    await userdata.save();
+    res.status(200)
+    .json({ userdata});
 
   }
   catch (err) {
@@ -246,6 +277,9 @@ router.post('/updatefirstname', withAuth, async (req, res) => {
   try {
     const userdata = await User.findByPk(req.session.user_id);
     userdata.first_name = req.body.user_first_name;
+    await userdata.save();
+    res.status(200)
+    .json({ userdata});
 
   }
   catch (err) {
@@ -256,7 +290,11 @@ router.post('/updatefirstname', withAuth, async (req, res) => {
 
 router.post('/updatelastname', withAuth, async (req, res) => {
   try {
-
+    const userdata = await User.findByPk(req.session.user_id);
+    userdata.last_name = req.body.user_last_name;
+    await userdata.save();
+    res.status(200)
+    .json({ userdata});
   }
   catch (err) {
     console.log(err);
@@ -266,6 +304,7 @@ router.post('/updatelastname', withAuth, async (req, res) => {
 
 
 
+// router.post( )
 
 router.post('')
 
