@@ -123,20 +123,43 @@ document.querySelector('#startSleep').addEventListener('click', async function (
 
         } else if (response.status === 202) {
             console.log(response);
-            response.json().then(function (data) {
+            response.json().then(async function (data) {
                 console.log(data);
-                let start = data.startdate;
-                let end = data.enddate;
-                let points = data.points;
+                var start = data.startdate;
+                var end = data.enddate;
+                const tpoints = data.points;
                 calendar.addEvent({
-                    title: `${points} points`,
+                    title: `${tpoints} points`,
                     start: start,
                     end: end
-                }
+                }, true);
+                await fetch('/api/award', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        points: tpoints,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then(function (response) {
+                    if (response.status === 200)
+                        console.log(response);
+                    else {
+                        console.log(response);
+                        alert("Something went wrong");
+                    }
+
+                })
                 )
+
+                isSleeping = false;
             });
-            isSleeping = false;
+
+
         }
+
+
+
         else {
             console.log(response);
             alert("Something went wrong");
