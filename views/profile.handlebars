@@ -1,41 +1,54 @@
 <section>
-  <h2>Account Settings</h2>
   <div class="form-container">
-    <div class="form-row">
-      <label for="firstname">
-        First name
-        <input type="text" id="firstname" name="firstname" placeholder="First name" required>
-      </label>
-      <label for="lastname">
-        Last name
-        <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
-      </label>
-      <label for="username">
-        Username
-        <input type="text" id="username" name="username" placeholder="Username" required>
-      </label>
-    </div>
-    <div class="form-row">
-      <label for="email">
-        Email address
-        <input type="email" id="email" name="email" placeholder="Email address" required>
-      </label>
-      <label for="password">
-        New Password
-        <input type="password" id="password" name="password" placeholder="Password" required>
-      </label>
-      <label for="confirm-password">
-        Confirm New Password
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
-      </label>
-      <div class="update">
-        <a href="#" role="button" id="submitButton">Update</a>
-        <a href="#" role="button" class="outline">Cancel</a>
+    <h2>Account Settings</h2>
+    <div class="form-group"> 
+      <div>
+        <label for="firstname">
+          First name
+          <input type="text" id="firstname" name="firstname" placeholder="First name" required>
+        </label>
       </div>
+      <div>
+        <label for="lastname">
+          Last name
+          <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
+        </label>
+      </div>
+      <div>
+        <label for="username">
+          Username
+          <input type="text" id="username" name="username" placeholder="Username" required>
+        </label>
+      </div>
+    </div>
+    <div class="form-group"> <!-- Used the 'form-group' class here. -->
+      <div>
+        <label for="email">
+          Email address
+          <input type="email" id="email" name="email" placeholder="Email address" required>
+        </label>
+      </div>
+      <div>
+        <label for="password">
+          New Password
+          <input type="password" id="password" name="password" placeholder="Password" required>
+        </label>
+      </div>
+      <div>
+        <label for="confirm-password">
+          Confirm New Password
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+        </label>
+      </div>
+    </div>
+    <div class="update">
+      <a href="#" role="button" class="outline">Update</a>
+      <a href="#" role="button" class="outline">Cancel</a>
     </div>
   </div>
 </section>
 <section>
+  <div class="form-container">
   <h2>Account History</h2>
   <h3>Life Time Points: </h3>
   <p id="lifetime-points">0</p>
@@ -45,5 +58,5 @@
 
   <h3>Order History: </h3>
   <p id="order-history">No orders yet.</p>
-
+  </div>
 </section>
