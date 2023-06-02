@@ -117,7 +117,7 @@
         "price": 100,
         "product_description": "An old style alarm clock",
         "product_img_alt": "Wooden alarm clock",
-        "product_img_path": "woodclock.jpeg",
+        "product_img_path": "old.jpeg",
         "product_category": "clock"
     }
 ]
