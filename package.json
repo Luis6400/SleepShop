@@ -4,6 +4,7 @@
   "description": "A sleep tracking application that you can earn rewards from",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon server.js"
   },
