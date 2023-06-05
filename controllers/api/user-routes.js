@@ -230,6 +230,31 @@ router.post('/award', withAuth, async (req, res) => {
   }
 });
 
+
+router.post('/pricecheck', withAuth, async (req, res) => {
+try {
+
+  const userData = await User.findByPk(req.session.user_id);
+  var user_points = userData.user_points;
+  var points = req.body.points;
+  if (user_points >= points) {
+    res.status(200)
+    .json({ user_points });
+  }
+  else if (user_points < points) {
+    res.status(201)
+    .json({ user_points });
+  }
+
+}
+catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+
+
+});
+
 router.post('/spend', withAuth, async (req, res) => {
   try {
     var points = req.body.points;
@@ -238,6 +263,10 @@ router.post('/spend', withAuth, async (req, res) => {
     var user_points = userData.user_points;
     var new_points = user_points - points;
     const userUpdate = await User.update({user_points: new_points}, {where: {id: user_id}});
+
+    const orderdata = await orders.create(req.body, {user_id: user_id});
+
+
     res.status(200)
     .json({ userUpdate});
 

@@ -14,9 +14,14 @@ orders.init(
         date_ordered: {
             type: DataTypes.DATEONLY,
             allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
         product_id: {
             type: DataTypes.INTEGER,
+        },
+        quantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
         user_id: {
             type: DataTypes.INTEGER,

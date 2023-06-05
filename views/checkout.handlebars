@@ -17,7 +17,7 @@
                 <p>X</p>
             </div>
             <div>
-                <p><span class="shop">{{product.product_name}}</span></p>
+                <p><span id="idspan" prodiddata="{{product.id}}" class="shop">{{product.product_name}}</span></p>
             </div>
             <div>
                 <p id="totalprice">{{product.price}}</p>
@@ -38,7 +38,7 @@
 
                 <label for="city">
                     City
-                    <input type="text" id="city" name="city" placeholder="City" required>
+                    <input type="text" id="city" name="checkcity" placeholder="City" required>
                 </label>
             </div>
             <div>
@@ -50,7 +50,7 @@
             <div>
                 <label for="state">
                     State
-                    <select id="statevalue">
+                    <select id="statevalue" required>
                         <option value="AL">AL</option>
                         <option value="AK">AK</option>
                         <option value="AR">AR</option>
@@ -107,6 +107,6 @@
 
             </div>
         </div>
-        <button type="submit">Confirm</button>
     </form>
+        <button id="checkoutbutton">Confirm</button>
 </main>

@@ -86,7 +86,9 @@ router.get('/signup', async (req, res) => {
 
 router.get('/account', withAuth, async (req, res) => {
     try {
-        res.render('profile', {logged_in: req.session.logged_in, layout: 'profileframe'});
+        const userData = await User.findByPk(req.session.user_id);
+        const user = userData.get({ plain: true });
+        res.render('profile', {logged_in: req.session.logged_in,user , layout: 'profileframe'});
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
