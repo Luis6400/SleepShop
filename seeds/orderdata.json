@@ -1,5 +1,13 @@
 [
     {
-        
+        "date_ordered": "2019-01-01",
+        "product_id": 1,
+        "quantity": 1,
+        "user_id": 1,
+        "address": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "zipcode": "10001",
+        "total": 100
     }
 ]
