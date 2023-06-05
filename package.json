@@ -2,7 +2,10 @@
   "name": "sleepshop",
   "version": "1.0.0",
   "description": "A sleep tracking application that you can earn rewards from",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": "16.19.0"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
