@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "date_ordered": "2019-01-01",
         "product_id": 1,
         "quantity": 1,
