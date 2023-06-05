@@ -1,0 +1,28 @@
+<main class="container">
+    <div class="grid">
+        <div>
+            <img src="/images/{{product.product_img_path}}" alt="{{product.product_img_alt}}">
+        </div>
+        <div>
+            <blockquote>
+                {{product.product_name}}
+                <footer>
+                    <cite>{{product.product_description}}</cite>
+                </footer>
+            </blockquote>
+
+            <label style="color:white" for="points">{{product.price}} sleep<span class="shop">POINTS</span></label>
+            <select id="bed" class="quantity" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <a id="buy" iddata="{{product.id}}" href="#" onclick="event.preventDefault()" role="button">Buy Now!</a>
+
+        </div>
+
+    </div>
+</main>
+

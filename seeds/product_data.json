@@ -1,0 +1,123 @@
+[
+    {
+        "product_name": "American pillow",
+        "price": 100,
+        "product_description": "A pillow with an American flag on it",
+        "product_img_alt": "American flag pillow",
+        "product_img_path": "usapillow.webp",
+        "product_category": "pillow"
+
+    },
+    {
+        "product_name": "Base pillow",
+        "price": 50,
+        "product_description": "A basic pillow",
+        "product_img_alt": "Basic pillow",
+        "product_img_path": "basepillow.jpeg",
+        "product_category": "pillow"
+    },
+    {
+        "product_name": "Purple pillow",
+        "price": 150,
+        "product_description": "A purple pillow that is super comfy and squeshy",
+        "product_img_alt": "Purple pillow",
+        "product_img_path": "purplepillow.jpg",
+        "product_category": "pillow"
+    },
+    {
+        "product_name": "Base blanket",
+        "price": 100,
+        "product_description": "A basic blanket",
+        "product_img_alt": "Basic blanket",
+        "product_img_path": "baseblanket.jpg",
+        "product_category": "blanket"
+    },
+    {
+        "product_name": "Pink blanket",
+        "price": 150,
+        "product_description": "A pink blanket",
+        "product_img_alt": "Pink blanket",
+        "product_img_path": "pinkblanket.jpeg",
+        "product_category": "blanket"
+    },
+    {
+        "product_name": "Kid blanket",
+        "price": 75,
+        "product_description": "A blanket for kids",
+        "product_img_alt": "Kid blanket",
+        "product_img_path": "kidblanket.webp",
+        "product_category": "blanket"
+    },
+    {
+        "product_name": "Base bed",
+        "price": 1000,
+        "product_description": "A basic bed",
+        "product_img_alt": "Basic bed",
+        "product_img_path": "basebed.webp",
+        "product_category": "bed"
+    },
+    {
+        "product_name": "Wood bed",
+        "price": 1500,
+        "product_description": "A bed made out of wood",
+        "product_img_alt": "Wood bed",
+        "product_img_path": "woodbed.jpeg",
+        "product_category": "bed"
+    },
+    {
+        "product_name": "Modern bed",
+        "price": 2000,
+        "product_description": "A modern bed",
+        "product_img_alt": "Modern bed",
+        "product_img_path": "modernbed.avif",
+        "product_category": "bed"
+    },
+    {
+        "product_name": "Base blindfold",
+        "price": 50,
+        "product_description": "A basic blindfold",
+        "product_img_alt": "Basic blindfold",
+        "product_img_path": "baseblindfold.png",
+        "product_category": "blindfold"
+    },
+    {
+        "product_name": "Pink blindfold",
+        "price": 75,
+        "product_description": "A pink blindfold",
+        "product_img_alt": "Pink blindfold",
+        "product_img_path": "pinkblindfold.webp",
+        "product_category": "blindfold"
+    },
+    {
+        "product_name": "Flower blindfold",
+        "price": 100,
+        "product_description": "A blindfold with flowers on it",
+        "product_img_alt": "Flower blindfold",
+        "product_img_path": "flowerblindfold.webp",
+        "product_category": "blindfold"
+    },
+    {
+        "product_name": "Base Clock",
+        "price": 100,
+        "product_description": "A basic alarm clock",
+        "product_img_alt": "Basic alarm clock",
+        "product_img_path": "baseclock.jpeg",
+        "product_category": "clock"
+    },
+    {
+        "product_name": "Modern clock",
+        "price": 150,
+        "product_description": "A modern alarm clock",
+        "product_img_alt": "Modern alarm clock",
+        "product_img_path": "modernclock.jpg",
+        "product_category": "clock"
+    },
+    {
+        "product_name": "Old clock",
+        "price": 100,
+        "product_description": "An old style alarm clock",
+        "product_img_alt": "Wooden alarm clock",
+        "product_img_path": "oldclock.jpeg",
+        "product_category": "clock"
+    }
+]

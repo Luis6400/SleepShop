@@ -1,0 +1,54 @@
+<header>
+  <main class="container">
+    <nav>
+      <ul class="nav-list">
+        <!-- This makes the sleepCREATE title and also makes the CREATE turn purple -->
+        <li class="title"><strong>sleep<span class="create">CREATE</span></strong></li>
+        <li><a href="/account" class="secondary accountLink">Sign In</a></li>
+      </ul>
+    </nav>
+  </main>
+</header>
+
+
+  <div class="form-container">
+    <section>
+      <form>
+        <div class="form-group">
+          <!-- First column -->
+          <div>
+            <label for="firstname">
+              First name
+              <input type="text" id="firstname" name="firstname" placeholder="First name" required>
+            </label>
+            <label for="lastname">
+              Last name
+              <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
+            </label>
+            <label for="username">
+              Username
+              <input type="text" id="username" name="username" placeholder="Username" required>
+            </label>
+          </div>
+          <!-- Second column -->
+          <div>
+            <label for="password">
+              Password
+              <input type="password" id="password" name="password" placeholder="Password" required>
+            </label>
+            <label for="confirm-password">
+              Confirm Password
+              <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+            </label>
+            <label for="email">
+              Email address
+              <input type="email" id="email" name="email" placeholder="Email address" required>
+              
+            </label>
+          </div>
+        </div>
+        <!-- Button -->
+        <button type="submit" id="submitButton" onclick="event.preventDefault()">Submit</button>
+      </form>
+    </section>
+  </div>

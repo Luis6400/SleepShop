@@ -1,0 +1,140 @@
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.create {
+    color: purple;
+}
+
+#submitButton:hover {
+  background-color: purple;
+  border-color: purple;
+}
+
+input:focus {
+  outline-color: purple;
+  border-color: purple;
+  box-shadow: 0 0 5px purple; 
+}
+.outline:hover {
+    outline-color: purple;
+  border-color: purple;
+  box-shadow: 0 0 5px purple;
+  color: purple;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.form-group > div {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.form-row > label {
+    flex: 1 0 calc(33% - 1em);
+    margin: 0.5em;
+}
+
+label {
+  display: inline-block;
+  width: 250px;
+  text-align: right;
+}
+
+#submitButton {
+  margin-top: 2em;
+  width: 100%;
+}
+
+.update {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+@media (max-width: 768px) {
+  .form-group {
+      flex-direction: column;
+  }
+}
+
+.hammy {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .hammy .bar {
+    height: 5px;
+    background: purple;
+    border-radius: 5px;
+    margin: 3px 0px;
+    transform-origin: left;
+    transition: all 0.5s;
+  }
+
+  .hammy-active .top {
+    transform: rotate(45deg);
+  }
+  
+  .hammy-active .middle {
+    opacity: 0;
+  }
+  
+  .hammy-active .bottom {
+    transform: rotate(-45deg);
+  }
+
+.accountLink {
+    color : white;
+}
+
+.accountLink:hover {
+    color : purple;
+}
+
+.dropHide {
+    display: none;
+}
+
+.vert {
+    display: inline;
+}
+

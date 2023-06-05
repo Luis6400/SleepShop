@@ -1,0 +1,81 @@
+h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+}
+
+.title {
+  font-size: 50px;
+  transform: translateX(-47px);
+}
+
+.create {
+  color: purple;
+}
+
+#submitButton:hover {
+background-color: purple;
+border-color: purple;
+}
+
+input:focus {
+outline-color: purple;
+border-color: purple;
+box-shadow: 0 0 5px purple; 
+}
+
+.outline:hover {
+background-color: purple;
+color: white;
+}
+
+.form-container {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.form-group {
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.form-group > div {
+margin: 1em;
+}
+
+#submitButton {
+margin-top: 2em;
+width: 100%;
+}
+
+.nav-list .accountLink {
+  font-size: 30px;
+}
+.nav-list .accountLink:hover {
+  color: purple;
+}
+
+@media (max-width: 768px) {
+.form-group {
+    flex-direction: column;
+}
+}
+

@@ -4,7 +4,8 @@
   "description": "A sleep tracking application that you can earn rewards from",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,15 +22,18 @@
     "connect-session-sequelize": "^7.0.4",
     "d3": "^7.8.4",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
+    "fullcalendar": "^6.1.8",
+    "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
+    "nodemon": "^2.0.22",
     "prettier": "^2.1.2"
   }
 }

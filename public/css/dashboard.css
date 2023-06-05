@@ -1,0 +1,127 @@
+/* CSS for Grid layout of boxes */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1.5fr 3.5fr; 
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+      "newBox newBox"
+      "left-top right"
+      "left-bottom right";
+    grid-gap: 10px;
+}
+
+.dashimg {
+    width: 150px;
+    height: 150px;
+}
+
+.sleepTracker {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px; 
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
+.box.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* #calendar {
+    height: 500px; 
+    width: 100%;
+    overflow: auto;
+} */
+
+#cdc:hover{
+   color: purple;
+}
+
+h3 {
+    margin-left: 75px;
+}
+
+h4 {
+    margin-left: 50px;
+}
+
+.box {
+    border: 2px solid purple;
+    padding: 20px;
+    min-height: 300px; 
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .newBox {
+    grid-area: newBox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    padding: 0px;
+    min-height: 0; 
+    flex-direction: column; 
+}
+
+.newBox p {
+    margin: 0 15px; 
+}
+
+  #timer {
+    width: 100px;
+    margin-top: 25px;
+
+  }
+  
+  .left-top {
+    grid-area: left-top;
+  }
+  
+  .left-bottom {
+    grid-area: left-bottom;
+  }
+  
+  .right {
+    grid-area: right;
+  }
+  
+
+/* Custom CSS for the calendar */
+.fc-toolbar-title {
+    font-size: 1.2em; 
+}
+.fc-button {
+    width: 80px; 
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 1000px) {
+    .grid-container {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "newBox"
+        "left-top"
+        "left-bottom"
+        "right";
+    }
+
+    
+    @media (max-width: 600px) {
+        .newBox p {
+            font-size: 0.8em; 
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .newBox p {
+            font-size: 0.5em; 
+        }
+    }
+}

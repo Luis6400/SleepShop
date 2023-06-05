@@ -1,0 +1,112 @@
+<main class="container">
+    <div class="grid">
+        <div>
+            <h2 class="shop">Checkout</h2>
+        </div>
+        <div>
+        </div>
+    </div>
+
+    <!-- This is the section for the card that displays all of the info about the item that you're purchasing -->
+    <article>
+        <div class="grid">
+            <div>
+                <p id="totalquantity">{{quantity}}</p>
+            </div>
+            <div>
+                <p>X</p>
+            </div>
+            <div>
+                <p><span id="idspan" prodiddata="{{product.id}}" class="shop">{{product.product_name}}</span></p>
+            </div>
+            <div>
+                <p id="totalprice">{{product.price}}</p>
+            </div>
+        </div>
+    </article>
+    <!-- This next section is for the form you need to fill out to get your item -->
+    <form>
+
+        <div class="grid">
+            <div>
+                <label for="address">
+                    Address
+                    <input type="text" id="address" name="address" placeholder="Address" required>
+                </label>
+            </div>
+            <div>
+
+                <label for="city">
+                    City
+                    <input type="text" id="city" name="checkcity" placeholder="City" required>
+                </label>
+            </div>
+            <div>
+                <label for="zip">
+                    Zip Code
+                    <input type="text" id="zip" name="zip" placeholder="Zip" required>
+                </label>
+            </div>
+            <div>
+                <label for="state">
+                    State
+                    <select id="statevalue" required>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AR">AR</option>
+                        <option value="AZ">AZ</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DC">DC</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="IA">IA</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="MA">MA</option>
+                        <option value="MD">MD</option>
+                        <option value="ME">ME</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MO">MO</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="NC">NC</option>
+                        <option value="NE">NE</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NV">NV</option>
+                        <option value="NY">NY</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WI">WI</option>
+                        <option value="WV">WV</option>
+                        <option value="WY">WY</option>
+                    </select>
+                </label>
+
+            </div>
+        </div>
+    </form>
+        <button id="checkoutbutton">Confirm</button>
+</main>
