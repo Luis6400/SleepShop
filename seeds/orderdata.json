@@ -8,7 +8,7 @@
         "address": "123 Main St",
         "city": "New York",
         "state": "NY",
-        "zipcode": "10001",
+        "zip": "10001",
         "total": 100
     }
 ]
