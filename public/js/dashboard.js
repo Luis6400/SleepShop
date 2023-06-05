@@ -188,9 +188,9 @@ window.onload = async function () {
                 console.log(data);
 
                 for (var i = 0; i < data.sleepdatearray.length; i++) {
-                    let tempstart = data.sleepdatearray[i].sleep_start;
-                    let tempend = data.sleepdatearray[i].sleep_end;
-                    let temppoints = data.sleepdata[i].points;
+                    let tempstart = data.sleepdatearray[i].startdate;
+                    let tempend = data.sleepdatearray[i].enddate;
+                    let temppoints = data.sleepdata[i].points_earned;
                     calendar.addEvent({
                         title: `${temppoints} points`,
                         start: tempstart,
