@@ -22,11 +22,11 @@ const seedDatabase = async () => {
     });
   }
 
-  // for (const order of orderData) {
-  //   await orders.create({
-  //     ...order,
-  //   });
-  // }
+  for (const order of orderData) {
+    await orders.create({
+      ...order,
+    });
+  }
 
     for (const product of productData) {
       await Product.create({
