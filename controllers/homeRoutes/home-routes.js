@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const sleepData = await sleep_data.findByPk(req.session.user_id);
         if (sleepData) {
-            const sleep = sleepData.map((sleep) => sleep.get({ plain: true }));
+            const sleep = sleepData.get({ plain: true });
 
             res.render('dashboard', { logged_in: req.session.logged_in, sleep, user_id: req.session.user_id, layout: 'dashboardframe' });
         }else{
