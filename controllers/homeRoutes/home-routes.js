@@ -101,7 +101,7 @@ router.get('/cart/:id/:quantity', withAuth, async (req, res) => {
         const product = productData.get({ plain: true });
         const quantity = req.params.quantity;
 
-        res.render('checkout', { logged_in: req.session.logged_in, product, quantity, layout: 'shopframe' });
+        res.render('checkout', { logged_in: req.session.logged_in, product, quantity, userid: req.session.user_id,layout: 'shopframe' });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
