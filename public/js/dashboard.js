@@ -10,7 +10,6 @@ const prodsection = document.getElementById("prodsec");
 let tips = [
     "Maintain a regular sleep schedule by going to bed and waking up at the same times every day, even on weekends.",
     "Create a restful environment that is dark, quiet, comfortable, and cool.",
-    "Use the bed only for sleeping and intimacy to help strengthen the association between bed and sleep.",
     "Exercise regularly to promote good quality sleep.",
     "Avoid consuming caffeine, nicotine, and alcohol, which can disrupt sleep.",
     "Limit daytime naps to 30 minutes. While napping can be a way to make up for lost sleep, if you have trouble falling asleep at night, napping can make it worse.",
@@ -240,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             end: ''
         },
-        contentHeight: 'auto',
+        
         eventClick: function (info) {
             alert('Event: ' + info.event.title + '\n' +
                 'Start: ' + info.event.start.toLocaleTimeString() + '\n' +

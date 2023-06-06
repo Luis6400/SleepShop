@@ -10,6 +10,13 @@ nav {
   position: relative;
 }
 
+.outline:hover {
+  outline-color: purple;
+border-color: purple;
+box-shadow: 0 0 5px purple;
+color: purple;
+}
+
 
 .productSize {
   width: 450px;
