@@ -2,9 +2,49 @@
 
 {
     "id": 1,
-    "date": "2019-01-01",
-    "sleep_start": "2019-01-01 23:00:00",
-    "sleep_end": "2019-01-02 07:00:00",
+    "date": "2023-06-01",
+    "end_date": "2023-06-02",
+    "sleep_start": "23:00:00",
+    "sleep_end": "07:00:00",
+    "still_sleeping": false,
+    "time_slept": "8",
+    "points_earned": 50,
+    "user_id": 1
+
+},
+{
+    "id": 2,
+    "date": "2023-06-02",
+    "end_date": "2023-06-03",
+    "sleep_start": "23:00:00",
+    "sleep_end": "07:00:00",
+    "still_sleeping": false,
+    "time_slept": "8",
+    "points_earned": 50,
+    "user_id": 1
+
+},
+{
+    "id": 3,
+    "date": "2023-06-03",
+    "end_date": "2023-06-04",
+    "sleep_start": "23:00:00",
+    "sleep_end": "07:00:00",
+    "still_sleeping": false,
+    "time_slept": "8",
+    "points_earned": 50,
+    "user_id": 1
+
+},
+{
+    "id": 4,
+    "date": "2023-06-04",
+    "end_date": "2023-06-05",
+    "sleep_start": "23:00:00",
+    "sleep_end": "07:00:00",
+    "still_sleeping": false,
+    "time_slept": "8",
+    "points_earned": 50,
     "user_id": 1
 
 }

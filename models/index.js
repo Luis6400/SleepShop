@@ -4,23 +4,23 @@ const Product = require('./products')
 const orders = require('./orders')
 const sequelize = require('../config/connection');
 
-User.hasMany(sleep_data, {
-  foreignKey: 'user_id'
-});
-
 sleep_data.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
-
-User.hasMany(orders, {
+User.hasMany(sleep_data, {
   foreignKey: 'user_id'
 });
+
 
 orders.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
+User.hasMany(orders, {
+  foreignKey: 'user_id'
+});
+
 
 sequelize.sync({ force: false })
   .then(() => {

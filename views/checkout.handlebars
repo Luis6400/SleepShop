@@ -20,12 +20,12 @@
                 <p><span id="idspan" prodiddata="{{product.id}}" class="shop">{{product.product_name}}</span></p>
             </div>
             <div>
-                <p id="totalprice">{{product.price}}</p>
+                <p id="totalprice" pricedata="{{product.price}}">{{product.price}}</p>
             </div>
         </div>
     </article>
     <!-- This next section is for the form you need to fill out to get your item -->
-    <form>
+    <div>
 
         <div class="grid">
             <div>
@@ -107,6 +107,6 @@
 
             </div>
         </div>
-    </form>
-        <button id="checkoutbutton">Confirm</button>
+    </div>
+        <button id="checkbut" userdata="{{userid}}" onclick="checkout()">Confirm</button>
 </main>
