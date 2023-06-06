@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
         initialView: 'dayGridMonth',
         events: [],
         selectable: true,
+        contentHeight:"auto",
         headerToolbar: {
             start: 'prev,next today',
             center: 'title',
