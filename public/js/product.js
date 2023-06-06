@@ -46,7 +46,7 @@ async function checkout() {
         var zip = zipinp.value;
         var userid = document.getElementById("checkbut").getAttribute("userdata");
 
-        total = parseInt(total);
+        total = (parseInt(total)*parseInt(quantity));
         var prodid = document.getElementById("idspan").getAttribute("prodiddata");
         prodid = parseInt(prodid);
         console.log(total);
