@@ -31,11 +31,11 @@
     justify-content: space-between;
 }
 
-/* #calendar {
-    height: 500px; 
+#calendar {
+    height: 900px; 
     width: 100%;
-    overflow: auto;
-} */
+    margin: 0 auto;
+}
 
 #cdc:hover{
    color: purple;
@@ -125,3 +125,4 @@ h4 {
         }
     }
 }
+
