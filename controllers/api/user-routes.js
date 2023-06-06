@@ -302,7 +302,7 @@ router.post('/updateemail', withAuth, async (req, res) => {
 router.post('/updatepassword', withAuth, async (req, res) => {
   try {
     const userdata = await User.findByPk(req.session.user_id);
-    const newpass = bcrypt.hash(req.body.user_password, 10);
+    const newpass = await bcrypt.hash(req.body.user_password, 10);
     userdata.user_password = newpass;
     await userdata.save();
     res.status(200)
