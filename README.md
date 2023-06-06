@@ -1,14 +1,13 @@
-![App screenshot]()
+![App screenshot](public/js/screenshots/sleepshop.png)
 
 ## Description
 
-Sleep Tracker is an interactive web application that enables users to track their sleeping patterns, earn points for healthy sleep durations, and use these points to buy products in the built-in Sleep Shop. Built on a secure platform, Sleep Tracker continues monitoring your sleep even when you're logged out. It supports user registration and profile creation for personalized tracking, with a calendar feature for visualizing your sleep patterns over time. It is currently deployed on Heroku, and you can visit the site [here](<Your_Heroku_Link>).
+Sleep Tracker is an interactive web application that enables users to track their sleeping patterns, earn points for healthy sleep durations, and use these points to buy products in the built-in Sleep Shop. Built on a secure platform, Sleep Tracker continues monitoring your sleep even when you're logged out. It supports user registration and profile creation for personalized tracking, with a calendar feature for visualizing your sleep patterns over time. It is currently deployed on Heroku, and you can visit the site [here](https://sleepshop.herokuapp.com/).
 
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
   - [Database Seeding](#database-seeding)
-- [Demo](#demo)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
