@@ -132,25 +132,28 @@ document.querySelector('#startSleep').addEventListener('click', async function (
                     start: start,
                     end: end
                 }, true);
-                fetch('/api/award', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        points: tpoints,
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }).then(function (response) {
-                    if (response.status === 200) {
-                        console.log("points added");
-                        console.log(response);
-                    }
-                    else {
-                        console.log(response);
-                        alert("Something went wrong");
-                    }
+                if (tpoints !== 0) {
+                    fetch('/api/award', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            points: tpoints,
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    }).then(function (response) {
+                        if (response.status === 200) {
+                            console.log("points added");
+                            alert("50 Points added");
+                            console.log(response);
+                        }
+                        else {
+                            console.log(response);
+                            alert("Something went wrong");
+                        }
 
-                })
+                    })
+                }
             })
         } else {
             console.log(response);
@@ -239,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             end: ''
         },
-        
+
         eventClick: function (info) {
             alert('Event: ' + info.event.title + '\n' +
                 'Start: ' + info.event.start.toLocaleTimeString() + '\n' +

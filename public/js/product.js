@@ -1,3 +1,4 @@
+
 document.getElementById("buy").addEventListener("click", function () {
 
     var quantity = (document.getElementsByClassName("quantity")[0]).value;
@@ -29,19 +30,28 @@ function checkfields() {
 
 }
 
-document.getElementById("checkoutbutton").addEventListener("click", async function () {
+async function checkout() {
     if (checkfields()) {
-        var total = document.getElementById("totalprice").value;
-        var quantity = document.getElementById("totalquantity").value;
-        var address = document.getElementById("address").value;
-        var city = document.getElementById("city").value;
-        var state = document.getElementById("state").value;
-        var zip = document.getElementById("zip").value;
+        var totalinp = document.getElementById("totalprice");
+        var quantityinp = document.getElementById("totalquantity");
+        var addressinp = document.getElementById("address");
+        var cityinp = document.getElementById("city");
+        var stateinp = document.getElementById("statevalue");
+        var zipinp = document.getElementById("zip");
+        var total = (totalinp.getAttribute("pricedata"));
+        var quantity = quantityinp.innerText;
+        var address = addressinp.value;
+        var city = cityinp.value;
+        var state = stateinp.value;
+        var zip = zipinp.value;
+        var userid = document.getElementById("checkbut").getAttribute("userdata");
+
         total = parseInt(total);
         var prodid = document.getElementById("idspan").getAttribute("prodiddata");
         prodid = parseInt(prodid);
+        console.log(total);
 
-        await fetch('/pricecheck', {
+        await fetch('/api/pricecheck', {
             method: 'POST',
             body: JSON.stringify({
                 points: total
@@ -50,7 +60,7 @@ document.getElementById("checkoutbutton").addEventListener("click", async functi
         })
             .then(function (response) {
                 if (response.status === 200) {
-                    fetch('/award', {
+                    fetch('/api/spend', {
                         method: 'POST',
                         body: JSON.stringify({
                             points: total,
@@ -60,14 +70,15 @@ document.getElementById("checkoutbutton").addEventListener("click", async functi
                             city: city,
                             state: state,
                             zip: zip,
-                            product_id: prodid
+                            product_id: prodid,
+                            user_id: userid
                         }),
                         headers: { 'Content-Type': 'application/json' },
                     })
                         .then(function (response) {
                             if (response.status === 200) {
                                 alert("Order placed successfully");
-                                window.location.href = "/dashboard";
+                                window.location.href = "/account";
                             }
                             else {
                                 alert("Something went wrong");
@@ -83,4 +94,5 @@ document.getElementById("checkoutbutton").addEventListener("click", async functi
 
 
     }
-});
+};
+

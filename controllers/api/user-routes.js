@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { User, Product, sleep_data, orders } = require('../../models');
+const bcrypt = require('bcrypt');
 
 
 router.post('/login', async (req, res) => {
@@ -178,10 +179,11 @@ router.post('/dashboard/createsleep', async (req, res) => {
 
       const timeslept = Math.round((((enddate.getTime() - startdate.getTime()) / 1000)/60)/60);
 
-      const points = 0
-      if (timeslept >7 && timeslept < 9){
+      var points = 0;
+      if (timeslept >=7 && timeslept <= 9){
         points = 50;
       }
+      
       const updobj = {time_slept: timeslept, points_earned: points}
 
       
@@ -279,6 +281,11 @@ router.post('/spend', withAuth, async (req, res) => {
 
 router.post('/updateemail', withAuth, async (req, res) => {
   try {
+    const checkuser = await User.findOne({ where: { user_email: req.body.user_email } });
+    if (checkuser) {
+      res.status(409).json({ message: 'Email already exists' });
+      return;
+    }
     const userdata = await User.findByPk(req.session.user_id);
     userdata.user_email = req.body.user_email;
     await userdata.save();
@@ -295,7 +302,8 @@ router.post('/updateemail', withAuth, async (req, res) => {
 router.post('/updatepassword', withAuth, async (req, res) => {
   try {
     const userdata = await User.findByPk(req.session.user_id);
-    userdata.user_password = req.body.user_password;
+    const newpass = bcrypt.hash(req.body.user_password, 10);
+    userdata.user_password = newpass;
     await userdata.save();
     res.status(200)
     .json({ userdata});
@@ -350,6 +358,39 @@ router.post('/updatelastname', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.post('/checkorders', withAuth, async (req, res) => {
+try {
+  const orderdata = await orders.findAll({where: {user_id: req.session.user_id}});
+  var orderarr = orderdata.map((order) => order.get({ plain: true }));
+  if (orderdata) {
+    res.status(200)
+    .json({ orderarr});
+  }
+  else if (!orderdata){
+    res.status(201)
+  }
+}
+  catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
+});
+
+router.post("/getproductimg", withAuth, async (req, res) => {
+  try {
+    const productdata = await Product.findByPk(req.body.product_id);
+    var productimg = productdata.product_img_path;
+    res.status(200)
+    .json({ productimg});
+  }
+  catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 
 
