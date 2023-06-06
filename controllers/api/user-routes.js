@@ -171,18 +171,20 @@ router.post('/dashboard/createsleep', async (req, res) => {
       const endday = parseInt((req.body.sleepend.end_date).slice(8,10));
       const endhour = parseInt((req.body.sleepend.sleep_end).slice(0,2));
       const endminute = parseInt((req.body.sleepend.sleep_end).slice(3,5));
-      const endsecond = parseInt((req.body.sleepend.sleep_end).slice(5,8));
+      const endsecond = parseInt((req.body.sleepend.sleep_end).slice(6,8));
       
       const startdate = new Date(startyear, startmonth, startday, starthour, startminute,startsecond);
       const enddate = new Date(endyear, endmonth, endday, endhour, endminute,endsecond);
-      
-
-      const timeslept = Math.round((((enddate.getTime() - startdate.getTime()) / 1000)/60)/60);
+            
+      const temptime = enddate.getTime() - startdate.getTime();
+      console.log(temptime);
+      const timeslept = ((((temptime) / 1000)/60)/60);
 
       var points = 0;
       if (timeslept >=7 && timeslept <= 9){
         points = 50;
       }
+      console.log(timeslept);
       
       const updobj = {time_slept: timeslept, points_earned: points}
 
