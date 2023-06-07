@@ -176,6 +176,9 @@ router.post('/dashboard/createsleep', async (req, res) => {
       const startdate = new Date(startyear, startmonth, startday, starthour, startminute,startsecond);
       const enddate = new Date(endyear, endmonth, endday, endhour, endminute,endsecond);
             
+      console.log(startdate);
+      console.log(enddate);
+      
       const temptime = enddate.getTime() - startdate.getTime();
       console.log(temptime);
       const timeslept = ((((temptime) / 1000)/60)/60);
