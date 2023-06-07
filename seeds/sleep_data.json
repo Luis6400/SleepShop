@@ -51,7 +51,7 @@
 {
     "id":5,
     "date": "2023-06-06",
-    "sleep_start": "11:30:00",
+    "sleep_start": "11:00:00",
     "still_sleeping": true,
     "user_id": 1
 }
